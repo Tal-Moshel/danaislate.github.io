@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dana Is Late(Again)</title>
+</head>
+<body>
+    <div >
+        <div id="main">
+            <p>When should have Dana arrived?</p>
+            <input type="time" id="appt" name="appt"
+            min="07:00" max="23:59" required>
+            
+        </div>
+        <div class="center">
+            <h1 id="late"></h1>
+            <h1>&nbsp; God damn minutes</h1>
+        </div>
+        <div class="center">
+            <img src="pic shit.jpg" alt="" srcset="">
+        </div>
+        <div class="center">
+            <p>© All rights reserved to www.empoweredwomen.com</p>
+        </div>
+    </div>
+</body>
+<style>
+    body{
+        background: #CCCCCC;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    #main {
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #main p{
+        font-size: 150%;
+    }
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .center h1 {
+        font-size: 300%;
+    }
+</style>
+<script>
+    var timePicker = document.getElementById("appt");
+    var lateText = document.getElementById("late");
+
+    let startTime = new Date();
+    let currentTime;
+
+    timePicker.addEventListener("input", function() {
+        //console.log(timePicker.value);
+        startTime.setHours(timePicker.value.charAt(0) + timePicker.value.charAt(1));
+        startTime.setMinutes(timePicker.value.charAt(3) + timePicker.value.charAt(4))
+        console.log(startTime.toString());
+    })
+
+    function loop(){
+        var minutes_difference = Math.floor((Date.now() - startTime) / 60000);
+        //console.log(minutes_difference);
+        lateText.innerText = minutes_difference;
+        setInterval(function(){
+            loop();
+        }, 1000)
+    }
+
+    loop();
+</script>
+</html>
