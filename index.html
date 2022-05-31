@@ -15,7 +15,7 @@
         </div>
         <div class="center">
             <h1 id="late"></h1>
-            <h1>&nbsp; God damn minutes</h1>
+            <h1></h1>
         </div>
         <div class="center">
             <img src="pic shit.jpg" alt="" srcset="">
@@ -65,7 +65,7 @@
     function loop(){
         var minutes_difference = Math.floor((Date.now() - startTime) / 60000);
         //console.log(minutes_difference);
-        lateText.innerText = minutes_difference;
+        lateText.innerText = minutes_difference + " God damn minutes";
         setInterval(function(){
             loop();
         }, 1000)
